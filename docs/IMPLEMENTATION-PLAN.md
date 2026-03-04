@@ -24,22 +24,22 @@ Goal: runnable CLI that scans a directory and prints a file list. No analysis ye
 - [x] Wire entry point so `autopsy scan .` works after `uv run`
 
 ### File Scanner (`src/autopsy/scanner.py`)
-- [ ] `scan_files(root: Path, config: Config) -> Iterator[Path]`
-- [ ] Recursively walk with `os.walk` or `pathlib.rglob`
-- [ ] Skip hidden dirs (`.git`, `.venv`, `node_modules`, `__pycache__`) by default
-- [ ] Load `.gitignore` at root using `pathspec.PathSpec.from_lines("gitwildmatch", ...)`
-- [ ] Apply additional ignore patterns from config (`[ignore] patterns`)
-- [ ] Filter by extension—initially only `.py`
-- [ ] Unit test: fixture dir with a nested `.gitignore`, assert ignored files absent
+- [x] `scan_files(root: Path, config: Config) -> Iterator[Path]`
+- [x] Recursively walk with `os.walk` or `pathlib.rglob`
+- [x] Skip hidden dirs (`.git`, `.venv`, `node_modules`, `__pycache__`) by default
+- [x] Load `.gitignore` at root using `pathspec.PathSpec.from_lines("gitignore", ...)`
+- [x] Apply additional ignore patterns from config (`[ignore] patterns`)
+- [x] Filter by extension—initially only `.py`
+- [x] Unit test: fixture dir with a nested `.gitignore`, assert ignored files absent
 
 ### Config Loader (`src/autopsy/config.py`)
-- [ ] `Config` dataclass (or attrs) with fields matching `.autopsy.toml` schema from SCOPE.md
-- [ ] `load_config(path: Path) -> Config` — reads TOML if present, falls back to defaults
-- [ ] Defaults hardcoded as class-level values; no config file required to run
-- [ ] Unit test: load a minimal toml, override one field, assert rest is default
+- [x] `Config` dataclass (or attrs) with fields matching `.autopsy.toml` schema from SCOPE.md
+- [x] `load_config(path: Path) -> Config` — reads TOML if present, falls back to defaults
+- [x] Defaults hardcoded as class-level values; no config file required to run
+- [x] Unit test: load a minimal toml, override one field, assert rest is default
 
 ### Data Models (`src/autopsy/models.py`)
-- [ ] Define shared types used by all layers (see ARCHITECTURE.md for full spec):
+- [x] Define shared types used by all layers (see ARCHITECTURE.md for full spec):
   - `Severity` enum: `INFO`, `WARNING`, `ERROR`
   - `Issue` dataclass: `rule_id, severity, message, file, line, col`
   - `FunctionMetrics` dataclass: raw extracted metrics per function
