@@ -10,18 +10,18 @@ adjust as you go. Tasks are ordered by dependency—don't skip ahead.
 Goal: runnable CLI that scans a directory and prints a file list. No analysis yet.
 
 ### Project Setup
-- [ ] `uv init` with `pyproject.toml` — package name `autopsy`, entry point `autopsy.cli:app`
-- [ ] Add dependencies: `typer`, `rich`, `pathspec`, `jinja2`, `tomli` (conditional on Python <3.11)
-- [ ] Add dev dependencies: `pytest`, `pytest-cov`, `ruff`
-- [ ] Configure `ruff` in `pyproject.toml` (line length 100, select E/W/F/I)
-- [ ] Create `src/autopsy/__init__.py` with `__version__ = "0.1.0"`
+- [x] `uv init` with `pyproject.toml` — package name `autopsy`, entry point `autopsy.cli:app`
+- [x] Add dependencies: `typer`, `rich`, `pathspec`, `jinja2`, `tomli` (conditional on Python <3.11)
+- [x] Add dev dependencies: `pytest`, `pytest-cov`, `ruff`
+- [x] Configure `ruff` in `pyproject.toml` (line length 100, select E/W/F/I)
+- [x] Create `src/autopsy/__init__.py` with `__version__ = "0.1.0"`
 
 ### CLI Skeleton (`src/autopsy/cli.py`)
-- [ ] `app = typer.Typer()` with `scan` command
-- [ ] `scan` accepts `path: Path` argument + `--config` option (default `.autopsy.toml`)
-- [ ] Print version header with `rich`
-- [ ] On invocation, print "Scanning <path>..." and exit cleanly
-- [ ] Wire entry point so `autopsy scan .` works after `uv run`
+- [x] `app = typer.Typer()` with `scan` command
+- [x] `scan` accepts `path: Path` argument + `--config` option (default `.autopsy.toml`)
+- [x] Print version header with `rich`
+- [x] On invocation, print "Scanning <path>..." and exit cleanly
+- [x] Wire entry point so `autopsy scan .` works after `uv run`
 
 ### File Scanner (`src/autopsy/scanner.py`)
 - [ ] `scan_files(root: Path, config: Config) -> Iterator[Path]`
