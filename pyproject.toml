@@ -1,0 +1,36 @@
+[project]
+name = "autopsy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "alexperreira", email = "alexanderperreira@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "jinja2>=3.1.6",
+    "pathspec>=1.0.4",
+    "rich>=14.3.3",
+    "tomli>=1.1.0 ; python_full_version < '3.11'",
+    "typer>=0.24.1",
+]
+
+[project.scripts]
+autopsy = "autopsy.cli:app"
+
+[build-system]
+requires = ["uv_build>=0.9.22,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.15.4",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I"]
