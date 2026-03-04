@@ -17,11 +17,11 @@ Goal: runnable CLI that scans a directory and prints a file list. No analysis ye
 - [x] Create `src/autopsy/__init__.py` with `__version__ = "0.1.0"`
 
 ### CLI Skeleton (`src/autopsy/cli.py`)
-- [ ] `app = typer.Typer()` with `scan` command
-- [ ] `scan` accepts `path: Path` argument + `--config` option (default `.autopsy.toml`)
-- [ ] Print version header with `rich`
-- [ ] On invocation, print "Scanning <path>..." and exit cleanly
-- [ ] Wire entry point so `autopsy scan .` works after `uv run`
+- [x] `app = typer.Typer()` with `scan` command
+- [x] `scan` accepts `path: Path` argument + `--config` option (default `.autopsy.toml`)
+- [x] Print version header with `rich`
+- [x] On invocation, print "Scanning <path>..." and exit cleanly
+- [x] Wire entry point so `autopsy scan .` works after `uv run`
 
 ### File Scanner (`src/autopsy/scanner.py`)
 - [ ] `scan_files(root: Path, config: Config) -> Iterator[Path]`
