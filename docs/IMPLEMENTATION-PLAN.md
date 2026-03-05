@@ -53,26 +53,26 @@ Goal: runnable CLI that scans a directory and prints a file list. No analysis ye
 Goal: extract cyclomatic + cognitive complexity for every function and flag overruns.
 
 ### AST Analyzer Base (`src/autopsy/analyzers/base.py`)
-- [ ] `BaseAnalyzer` ABC with method `analyze(path: Path, source: str) -> FileResult`
-- [ ] Defines the contract; no logic here
+- [x] `BaseAnalyzer` ABC with method `analyze(path: Path, source: str) -> FileResult`
+- [x] Defines the contract; no logic here
 
 ### Python Analyzer (`src/autopsy/analyzers/python.py`)
-- [ ] `PythonAnalyzer(BaseAnalyzer)` — reads source, parses with `ast.parse`
-- [ ] `FunctionVisitor(ast.NodeVisitor)` that walks the AST and extracts:
+- [x] `PythonAnalyzer(BaseAnalyzer)` — reads source, parses with `ast.parse`
+- [x] `FunctionVisitor(ast.NodeVisitor)` that walks the AST and extracts:
   - Function/method name, start line, end line → line count
   - Argument count
   - Nesting depth (tracked via visitor state)
-- [ ] Handle `ast.parse` errors gracefully: emit one `ERROR`-severity issue, return partial result
-- [ ] Unit test: parse a fixture file, assert correct function names and line counts
+- [x] Handle `ast.parse` errors gracefully: emit one `ERROR`-severity issue, return partial result
+- [x] Unit test: parse a fixture file, assert correct function names and line counts
 
 ### Cyclomatic Complexity (`src/autopsy/rules/complexity.py`)
-- [ ] `cyclomatic_complexity(func_node: ast.FunctionDef) -> int`
-- [ ] Count decision points: `If`, `While`, `For`, `ExceptHandler`, `With`, `Assert`,
+- [x] `cyclomatic_complexity(func_node: ast.FunctionDef) -> int`
+- [x] Count decision points: `If`, `While`, `For`, `ExceptHandler`, `With`, `Assert`,
   boolean ops (`And`, `Or`), `comprehension` (each `if`), `match` arms
-- [ ] Base = 1, add 1 per decision point
-- [ ] `CyclomaticComplexityRule` class: compares against `config.max_cyclomatic_complexity`,
+- [x] Base = 1, add 1 per decision point
+- [x] `CyclomaticComplexityRule` class: compares against `config.max_cyclomatic_complexity`,
   emits `WARNING` (≥threshold) or `ERROR` (≥2×threshold)
-- [ ] Unit test: known functions with expected CC values
+- [x] Unit test: known functions with expected CC values
 
 ### Cognitive Complexity (`src/autopsy/rules/complexity.py`)
 - [ ] `cognitive_complexity(func_node: ast.FunctionDef) -> int`
@@ -84,10 +84,10 @@ Goal: extract cyclomatic + cognitive complexity for every function and flag over
 - [ ] Unit test: known examples with expected scores
 
 ### Per-file Aggregation
-- [ ] `PythonAnalyzer.analyze()` runs all complexity rules for each function,
+- [x] `PythonAnalyzer.analyze()` runs all complexity rules for each function,
   collects issues into `FileResult`
-- [ ] `FileResult.metrics` stores max/avg CC and cognitive complexity at file level
-- [ ] CLI `scan` command prints a simple table: file, function count, max CC (no scoring yet)
+- [x] `FileResult.metrics` stores max/avg CC and cognitive complexity at file level
+- [x] CLI `scan` command prints a simple table: file, function count, max CC (no scoring yet)
 
 ---
 
